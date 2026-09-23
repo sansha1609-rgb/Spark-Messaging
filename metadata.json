@@ -1,0 +1,6 @@
+{
+  "name": "GB WhatsApp Pro - Enhanced Privacy & Multi-Account Messenger",
+  "description": "Next-generation messaging client inspired by GB WhatsApp featuring per-contact privacy, hidden chat vault, message scheduler, multi-account switcher, biometric lock, theme customization, and end-to-end encryption.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

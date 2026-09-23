@@ -1,0 +1,305 @@
+import { AccountProfile, Contact, Message, ScheduledMessage, StatusStory, ThemeConfig } from '../types/chat';
+
+export const INITIAL_ACCOUNTS: AccountProfile[] = [
+  {
+    id: 'acc_personal',
+    name: 'Alex Vance',
+    phone: '+1 (555) 234-5678',
+    avatar: '/src/assets/images/avatar_alex_tech_1790140723394.jpg',
+    statusBio: 'Building the next-gen web · Living quietly 🌿',
+    lastSeenPrivacy: 'nobody',
+    onlinePrivacy: 'stealth',
+    freezeLastSeen: true,
+    frozenTimestamp: 'Yesterday at 11:42 PM',
+    disableForwardedTag: true,
+    antiViewOnce: true,
+    callPrivacy: 'contacts',
+    appLockTimeout: 'immediate',
+    biometricEnabled: true,
+    masterPin: '1234',
+  },
+  {
+    id: 'acc_business',
+    name: 'Alex V. (Cloud Core)',
+    phone: '+1 (555) 890-1234',
+    avatar: '/src/assets/images/avatar_marcus_biz_1790140749899.jpg',
+    statusBio: 'Cloud Core Engineering · Available for enterprise sprint syncs 🚀',
+    lastSeenPrivacy: 'contacts',
+    onlinePrivacy: 'same_as_last_seen',
+    freezeLastSeen: false,
+    disableForwardedTag: false,
+    antiViewOnce: false,
+    callPrivacy: 'everyone',
+    appLockTimeout: '5m',
+    biometricEnabled: true,
+    masterPin: '1234',
+  },
+  {
+    id: 'acc_stealth',
+    name: 'Cipher Nine (Ghost)',
+    phone: '+44 7700 900321',
+    avatar: '/src/assets/images/avatar_alex_tech_1790140723394.jpg',
+    statusBio: 'Zero-trace communication · End-to-end verified 🛡️',
+    lastSeenPrivacy: 'nobody',
+    onlinePrivacy: 'stealth',
+    freezeLastSeen: true,
+    frozenTimestamp: 'Oct 14, 2025 at 03:15 AM',
+    disableForwardedTag: true,
+    antiViewOnce: true,
+    callPrivacy: 'nobody',
+    appLockTimeout: 'immediate',
+    biometricEnabled: true,
+    masterPin: '1234',
+  }
+];
+
+export const INITIAL_CONTACTS: Contact[] = [
+  {
+    id: 'contact_sophia',
+    name: 'Sophia Laurent',
+    phone: '+1 (555) 432-8765',
+    avatar: '/src/assets/images/avatar_sophia_art_1790140738187.jpg',
+    about: 'Design Lead @ Studio Lumina · Exploring minimalism',
+    online: true,
+    lastSeen: 'Online',
+    unreadCount: 1,
+    safetyNumber: '39481 02938 48192 00192 84721 99124 57291 38472 91823 48102 75829 19384',
+    privacy: {
+      hideBlueTicks: true,
+      hideSecondTick: false,
+      hideTyping: true,
+      hideStatusView: true,
+      antiDelete: true,
+      freezeLastSeen: true,
+      isChatLocked: false,
+    },
+  },
+  {
+    id: 'contact_marcus',
+    name: 'Marcus Sterling',
+    phone: '+1 (555) 987-6543',
+    avatar: '/src/assets/images/avatar_marcus_biz_1790140749899.jpg',
+    about: 'VP Engineering · Deployments every Tuesday',
+    online: false,
+    lastSeen: 'Today at 09:15 AM',
+    unreadCount: 0,
+    safetyNumber: '71829 48102 38491 02938 18273 64519 28374 91028 47281 92837 46519 02817',
+    privacy: {
+      hideBlueTicks: true,
+      hideSecondTick: true,
+      hideTyping: true,
+      hideStatusView: true,
+      antiDelete: true,
+      freezeLastSeen: false,
+      isChatLocked: false,
+    },
+  },
+  {
+    id: 'contact_priya',
+    name: 'Priya Sharma',
+    phone: '+91 98765 43210',
+    avatar: '/src/assets/images/avatar_sophia_art_1790140738187.jpg',
+    about: 'Security Researcher · Cryptography & Zero-Knowledge',
+    online: true,
+    lastSeen: 'Online',
+    unreadCount: 0,
+    safetyNumber: '58291 92837 47281 01928 38472 91827 36451 92837 48102 93847 56192 83746',
+    privacy: {
+      hideBlueTicks: false,
+      hideSecondTick: false,
+      hideTyping: false,
+      hideStatusView: false,
+      antiDelete: true,
+      freezeLastSeen: false,
+      isChatLocked: false,
+    },
+  },
+  {
+    id: 'contact_secret_project',
+    name: 'Project Nova (Classified)',
+    phone: '+1 (555) 000-7777',
+    avatar: '/src/assets/images/avatar_marcus_biz_1790140749899.jpg',
+    about: 'Encrypted Vault Channel · Biometric Access Only',
+    online: false,
+    lastSeen: 'Encrypted',
+    isHidden: true, // Marked as hidden in GB Vault
+    unreadCount: 0,
+    safetyNumber: '99999 11111 88888 22222 77777 33333 66666 44444 55555 00000 12345 67890',
+    privacy: {
+      hideBlueTicks: true,
+      hideSecondTick: true,
+      hideTyping: true,
+      hideStatusView: true,
+      antiDelete: true,
+      freezeLastSeen: true,
+      isChatLocked: true,
+    },
+  },
+  {
+    id: 'contact_liam',
+    name: 'Liam Chen',
+    phone: '+1 (555) 765-4321',
+    avatar: '/src/assets/images/avatar_alex_tech_1790140723394.jpg',
+    about: 'Mobile Architecture & Offline Sync Specialist',
+    online: false,
+    lastSeen: 'Yesterday at 04:30 PM',
+    unreadCount: 0,
+    safetyNumber: '12837 46519 28374 91028 47281 92837 46519 02817 58291 92837 47281 01928',
+    privacy: {
+      hideBlueTicks: false,
+      hideSecondTick: false,
+      hideTyping: false,
+      hideStatusView: false,
+      antiDelete: true,
+      freezeLastSeen: false,
+      isChatLocked: false,
+    },
+  }
+];
+
+export const INITIAL_MESSAGES: Message[] = [
+  // Sophia chat
+  {
+    id: 'msg_s1',
+    senderId: 'contact_sophia',
+    recipientId: 'me',
+    text: 'Hey Alex! Have you reviewed the new dark interface mockups for the release?',
+    timestamp: '10:14 AM',
+    status: 'read',
+  },
+  {
+    id: 'msg_s2',
+    senderId: 'me',
+    recipientId: 'contact_sophia',
+    text: 'Yes! The typography and contrast balance are spot on. Did you test on OLED screens?',
+    timestamp: '10:16 AM',
+    status: 'read',
+  },
+  {
+    id: 'msg_s3',
+    senderId: 'contact_sophia',
+    recipientId: 'me',
+    text: 'Let me share the test screenshot real quick...',
+    timestamp: '10:18 AM',
+    status: 'read',
+  },
+  {
+    id: 'msg_s4_revoked',
+    senderId: 'contact_sophia',
+    recipientId: 'me',
+    text: 'Oops sent wrong draft with old client name! Please ignore this version.',
+    timestamp: '10:19 AM',
+    status: 'read',
+    isRevoked: true, // GB Anti-Delete demonstration!
+    revokedAt: '10:20 AM',
+  },
+  {
+    id: 'msg_s5',
+    senderId: 'contact_sophia',
+    recipientId: 'me',
+    text: 'Here is the final verified palette! Let me know if we can schedule the sync at 3 PM.',
+    timestamp: '10:22 AM',
+    status: 'delivered',
+  },
+
+  // Marcus chat
+  {
+    id: 'msg_m1',
+    senderId: 'contact_marcus',
+    recipientId: 'me',
+    text: 'Database schema migration completed across regional nodes.',
+    timestamp: '08:45 AM',
+    status: 'read',
+  },
+  {
+    id: 'msg_m2',
+    senderId: 'me',
+    recipientId: 'contact_marcus',
+    text: 'Latency remained under 12ms during the cutover. Verified with zero packet drops.',
+    timestamp: '08:50 AM',
+    status: 'read',
+  },
+
+  // Project Nova (Hidden Vault Chat)
+  {
+    id: 'msg_nova1',
+    senderId: 'contact_secret_project',
+    recipientId: 'me',
+    text: 'Private vault channel initialized. Keys rotated with 256-bit AES-GCM.',
+    timestamp: 'Yesterday',
+    status: 'read',
+  },
+  {
+    id: 'msg_nova2',
+    senderId: 'me',
+    recipientId: 'contact_secret_project',
+    text: 'Acknowledged. Offline backup hash stored safely in encrypted storage snapshot.',
+    timestamp: 'Yesterday',
+    status: 'read',
+  },
+
+  // Priya chat
+  {
+    id: 'msg_p1',
+    senderId: 'contact_priya',
+    recipientId: 'me',
+    text: 'I audited the end-to-end encryption pipeline. Safety number fingerprint matching works seamlessly.',
+    timestamp: 'Monday',
+    status: 'read',
+  }
+];
+
+export const INITIAL_SCHEDULED_MESSAGES: ScheduledMessage[] = [
+  {
+    id: 'sch_1',
+    recipientId: 'contact_sophia',
+    text: 'Reminder: Design sprint review meeting in 15 minutes. Link: https://meet.company.internal/ux-sync',
+    scheduledTime: new Date(Date.now() + 1000 * 60 * 15).toISOString(),
+    repeat: 'once',
+    status: 'pending',
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 'sch_2',
+    recipientId: 'contact_marcus',
+    text: 'Daily engineering sync status report: All services operational, backup integrity 100%.',
+    scheduledTime: new Date(Date.now() + 1000 * 60 * 60 * 8).toISOString(),
+    repeat: 'daily',
+    status: 'pending',
+    createdAt: new Date().toISOString(),
+  }
+];
+
+export const INITIAL_STORIES: StatusStory[] = [
+  {
+    id: 'story_sophia',
+    authorId: 'contact_sophia',
+    authorName: 'Sophia Laurent',
+    authorAvatar: '/src/assets/images/avatar_sophia_art_1790140738187.jpg',
+    caption: 'Sunset over the studio terrace ✨ Crafting next-gen dark interfaces.',
+    bgColor: '#1a365d',
+    timestamp: '45 minutes ago',
+    viewersCount: 28,
+    isViewedByMe: false,
+  },
+  {
+    id: 'story_marcus',
+    authorId: 'contact_marcus',
+    authorName: 'Marcus Sterling',
+    authorAvatar: '/src/assets/images/avatar_marcus_biz_1790140749899.jpg',
+    caption: '100% uptime milestone reached this quarter. Proud of the infrastructure team!',
+    bgColor: '#14532d',
+    timestamp: '2 hours ago',
+    viewersCount: 42,
+    isViewedByMe: false,
+  }
+];
+
+export const DEFAULT_THEME: ThemeConfig = {
+  preset: 'emerald',
+  isDark: true,
+  accentColor: '#00a884',
+  bubbleStyle: 'rounded',
+  wallpaper: 'doodle',
+  fontSize: 'medium',
+};
